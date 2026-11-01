@@ -1,10 +1,9 @@
 {
   "label": "Karoo HR",
   "packageName": "io.hammerhead.karooexttemplate",
-  "latestApkUrl": "TO_DODAVA",
+  "latestApkUrl": "https://github.com/mirml/karoo-hr-manifest/releases/download/v0.1.0/app-debug.apk",
   "latestVersion": "0.1.0",
   "latestVersionCode": 1,
-  "iconUrl": "",
   "developer": "mirml",
   "description": "Heart rate display with current, average and maximum heart rate and dynamic heart rate zones.",
   "releaseNotes": "Initial test release"
