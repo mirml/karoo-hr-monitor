@@ -1,1 +1,45 @@
-# karoo-hr-manifest
+# Karoo HR
+
+**Heart rate monitoring for Hammerhead Karoo 3.**
+
+Karoo HR is an extension for Hammerhead Karoo that displays your heart rate directly on your cycling computer. Monitor your current, average and maximum heart rate, together with dynamic heart rate zones, while riding.
+
+## Screenshots
+
+### Karoo HR – Heart Rate Field
+
+![Karoo HR heart rate field](screenshots/karoo_hr_field.png)
+
+### Karoo 3 – Full Screen
+
+![Karoo HR on the full Karoo 3 screen](screenshots/karoo_hr.png)
+
+## Features
+
+- **Current heart rate** – see your live heart rate.
+- **Average heart rate** – track your average heart rate during a ride.
+- **Maximum heart rate** – monitor your peak heart rate.
+- **Dynamic heart rate zones** – see which heart rate zone you are currently in.
+- **Designed for Hammerhead Karoo** – integrated into the Karoo Extensions ecosystem.
+
+## Installation
+
+1. Open the Extensions section on your Hammerhead Karoo.
+2. Find Karoo HR in the extension catalog.
+3. Select Install.
+4. Add the Karoo HR data field to your ride screen.
+
+## Download
+
+Latest version: **0.1.1**
+
+[Download Karoo HR APK](https://github.com/mirml/karoo-hr-manifest/releases/download/v0.1.1/app-debug.apk)
+
+## Version
+
+- Version: 0.1.1
+- Version code: 2
+
+## Developer
+
+Developed by [mirml](https://github.com/mirml).
