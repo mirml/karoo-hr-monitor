@@ -5,7 +5,7 @@
   "latestVersion": "0.1.1",
   "latestVersionCode": 2,
   "developer": "mirml",
-  "description": "Karoo HR displays your current, average and maximum heart rate during a ride, along with dynamic heart rate zones. Easily monitor your heart rate and training intensity directly on your Karoo device.",
+  "description": "Karoo HR Zones displays your current, average and maximum heart rate during a ride, together with dynamic heart rate zones. Monitor your heart rate and training intensity at a glance, directly on your Hammerhead Karoo.",
   "releaseNotes": "Improved heart rate display and functionality",
   "screenshotUrls": [
     "https://raw.githubusercontent.com/mirml/karoo-hr-zones/main/screenshots/karoo_hr_field.png",
