@@ -8,6 +8,7 @@
   "description": "Karoo HR displays your current, average and maximum heart rate during a ride, along with dynamic heart rate zones. Easily monitor your heart rate and training intensity directly on your Karoo device.",
   "releaseNotes": "Improved heart rate display and functionality",
   "screenshotUrls": [
-    "https://raw.githubusercontent.com/mirml/karoo-hr-manifest/main/screenshots/karoo_hr_field.png"
+    "https://raw.githubusercontent.com/mirml/karoo-hr-manifest/main/screenshots/karoo_hr_field.png",
+    "https://raw.githubusercontent.com/mirml/karoo-hr-manifest/main/screenshots/karoo_hr.png"
   ]
 }
