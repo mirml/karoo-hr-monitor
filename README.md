@@ -29,16 +29,11 @@ Karoo HR is an extension for Hammerhead Karoo that displays your heart rate dire
 3. Select Install.
 4. Add the Karoo HR data field to your ride screen.
 
-## Download
+## Get Karoo HR
 
-Latest version: **0.1.1**
+Find and install Karoo HR through the Extensions section on your Hammerhead Karoo device.
 
-[Download Karoo HR APK](https://github.com/mirml/karoo-hr-manifest/releases/download/v0.1.1/app-debug.apk)
-
-## Version
-
-- Version: 0.1.1
-- Version code: 2
+For the latest version and release information, visit the [Releases page](https://github.com/mirml/karoo-hr-manifest/releases).
 
 ## Developer
 
