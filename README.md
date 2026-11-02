@@ -33,7 +33,7 @@ Karoo HR is an extension for Hammerhead Karoo that displays your heart rate dire
 
 Find and install Karoo HR through the Extensions section on your Hammerhead Karoo device.
 
-For the latest version and release information, visit the [Releases page](https://github.com/mirml/karoo-hr-manifest/releases).
+For the latest version and release information, visit the [Releases page](https://github.com/mirml/karoo-hr-zones/releases).
 
 ## Developer
 
