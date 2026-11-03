@@ -1,15 +1,15 @@
 {
-  "label": "Karoo HR Zones",
-  "packageName": "io.github.mirml.karoohrzones",
-  "iconUrl": "https://raw.githubusercontent.com/mirml/karoo-hr-zones/main/icon.webp",
-  "latestApkUrl": "https://github.com/mirml/karoo-hr-zones/releases/download/v0.1.5/app-debug.apk",
+  "label": "Karoo HR Monitor",
+  "packageName": "io.github.mirml.karoohrmonitor",
+  "iconUrl": "https://raw.githubusercontent.com/mirml/karoo-hr-monitor/main/icon.webp",
+  "latestApkUrl": "https://github.com/mirml/karoo-hr-monitor/releases/download/v0.1.5/app-debug.apk",
   "latestVersion": "0.1.5",
   "latestVersionCode": 6,
   "developer": "mirml",
-  "description": "Karoo HR Zones displays your current, average and maximum heart rate during a ride, together with dynamic heart rate zones. Monitor your heart rate and training intensity at a glance, directly on your Hammerhead Karoo.",
+  "description": "Karoo HR Monitor displays your current, average and maximum heart rate during a ride, together with dynamic heart rate zones. Monitor your heart rate and training intensity at a glance, directly on your Hammerhead Karoo.",
   "releaseNotes": "Improved heart rate display and functionality",
   "screenshotUrls": [
-    "https://raw.githubusercontent.com/mirml/karoo-hr-zones/main/screenshots/karoo_hr_field.png",
-    "https://raw.githubusercontent.com/mirml/karoo-hr-zones/main/screenshots/karoo_hr.png"
+    "https://raw.githubusercontent.com/mirml/karoo-hr-monitor/main/screenshots/karoo_hr_field.png",
+    "https://raw.githubusercontent.com/mirml/karoo-hr-monitor/main/screenshots/karoo_hr.png"
   ]
 }
