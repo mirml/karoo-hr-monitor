@@ -1,6 +1,7 @@
 {
   "label": "Karoo HR Zones",
   "packageName": "io.github.mirml.karoohrzones",
+  "iconUrl": "https://raw.githubusercontent.com/mirml/karoo-hr-zones/main/icon.webp",
   "latestApkUrl": "https://github.com/mirml/karoo-hr-zones/releases/download/v0.1.5/app-debug.apk",
   "latestVersion": "0.1.5",
   "latestVersionCode": 6,
