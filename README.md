@@ -47,55 +47,51 @@ For the latest version and release information, visit the [Releases page](https:
 
 ### Karoo SDK dependency
 
-Karoo HR depends on the `io.hammerhead:karoo-ext:1.1.3` library, hosted in GitHub Packages:
+Karoo HR depends on `io.hammerhead:karoo-ext:1.1.3`, hosted in GitHub Packages:
 
 `https://maven.pkg.github.com/hammerheadnav/karoo-ext`
 
-Access to this package is managed separately from access to this public source repository. You must have permission to download the package.
+Access to this package is managed separately from access to this public repository. You must have permission to download the package.
 
-### GitHub Actions authentication
+### Building locally
 
-The included GitHub Actions workflow uses the following repository secrets:
+Configure your GitHub credentials as environment variables:
 
 - `GPR_USER` – your GitHub username.
 - `GPR_KEY` – a GitHub Personal Access Token (classic) with the `read:packages` scope.
 
-To configure them:
-
-1. Open your repository on GitHub.
-2. Go to **Settings → Secrets and variables → Actions**.
-3. Select **New repository secret**.
-4. Add `GPR_USER` and `GPR_KEY`.
-
 Never commit access tokens or credentials to the repository.
 
-Alternatively, GitHub Actions can use its automatically generated `GITHUB_TOKEN`. This requires:
-- Granting the workflow repository read access to the `karoo-ext` package under **Manage Actions access** in the package settings.
-- Adding `packages: read` to the workflow permissions.
-- Configuring the workflow to use `GITHUB_TOKEN` instead of a personal access token.
+Build the debug APK:
 
-### Building locally
-
-For local builds, configure your GitHub username and Personal Access Token as environment variables:
-
-- `GPR_USER`
-- `GPR_KEY`
-
-Then run:
-
-```bash
-./gradlew :app:assembleDebug
-```
-
-On Windows:
+**Windows (PowerShell):**
 
 ```powershell
 .\gradlew.bat :app:assembleDebug
 ```
 
+**Linux / macOS:**
+
+```bash
+./gradlew :app:assembleDebug
+```
+
 The generated APK is located at:
 
 `app/build/outputs/apk/debug/app-debug.apk`
+
+### Creating a release
+
+To publish a new version:
+
+1. Update `versionCode` and `versionName` in `app/build.gradle.kts`.
+2. Build the APK locally and verify that the build succeeds.
+3. Create a new GitHub Release with a matching version tag (for example, `v0.3.0`).
+4. Upload the generated `app-debug.apk` to the release.
+5. Update `latestApkUrl`, `latestVersion` and `latestVersionCode` in `manifest.json`.
+6. Verify that the APK download URL is accessible.
+
+APK builds are currently performed locally because GitHub Actions does not have the required access to the private Hammerhead SDK package.
 
 
 ## Developer

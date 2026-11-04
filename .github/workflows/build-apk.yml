@@ -1,7 +1,6 @@
 name: Build Karoo HR APK
 
 on:
-  push:
   workflow_dispatch:
 
 permissions:
