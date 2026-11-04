@@ -160,6 +160,7 @@ class HeartRateGraphicDataType(extension: String) :
         emitter.updateView(views)
     }
 
+
     private fun createTextBitmap(
         context: Context,
         text: String,
@@ -271,7 +272,7 @@ class HeartRateGraphicDataType(extension: String) :
             style = Paint.Style.FILL
         }
 
-        // Določimo aktivno cono glede na trenutni utrip.
+        // Determine the active zone based on the current heart rate.
         val activeZoneIndex = currentHr?.let { value ->
             val hr = value.toFloat()
 
@@ -286,7 +287,7 @@ class HeartRateGraphicDataType(extension: String) :
             }
         } ?: -1
 
-        // Širina aktivne cone.
+        // Width of the active zone.
         val inactiveWeight = 1f
         val activeWeight = 1.9f
 
@@ -321,11 +322,11 @@ class HeartRateGraphicDataType(extension: String) :
                 Color.GRAY
             }
 
-            // Višina barvnih con.
+            // Height of the colored zones.
             val barTop = if (isActive) 1.5f else 6f
             val barBottom = if (isActive) 16f else 13f
 
-            // Polno pobarvana cona brez okvirjev.
+            // Fully filled zone without borders.
             paint.color = zoneColor
 
             canvas.drawRect(
@@ -350,11 +351,11 @@ class HeartRateGraphicDataType(extension: String) :
 
                 val markerCenter = left + positionInZone * segmentWidth
 
-                // Višina indikatorja.
+                // Indicator height.
                 val markerTop = 0f
                 val markerBottom = 17.8f
 
-                // Bela zunanja oblika indikatorja.
+                // White outer shape of the indicator.
                 val outerMarker = Path().apply {
                     moveTo(markerCenter - 8.4f, markerTop)
                     lineTo(markerCenter + 8.4f, markerTop)
@@ -366,7 +367,7 @@ class HeartRateGraphicDataType(extension: String) :
                 paint.color = Color.WHITE
                 canvas.drawPath(outerMarker, paint)
 
-                // Črna notranjost indikatorja.
+                // Black interior of the indicator.
                 val innerMarker = Path().apply {
                     moveTo(markerCenter - 4.4f, barTop)
                     lineTo(markerCenter + 4.4f, barTop)
@@ -375,7 +376,7 @@ class HeartRateGraphicDataType(extension: String) :
                     close()
                 }
 
-                // Črni del ostane v celoti znotraj barvnega pravokotnika.
+                // Keep the black section entirely within the colored rectangle.
                 canvas.save()
 
                 canvas.clipRect(

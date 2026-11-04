@@ -61,7 +61,7 @@
                 android:layout_gravity="center_horizontal|top"
                 android:scaleType="fitCenter" />
 
-            <!-- Fiksni rdeči srček -->
+            <!-- Fixed red heart icon -->
             <TextView
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"

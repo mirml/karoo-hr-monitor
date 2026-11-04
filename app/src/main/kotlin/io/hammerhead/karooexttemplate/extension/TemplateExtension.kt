@@ -32,34 +32,34 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
     override fun onCreate() {
         super.onCreate()
 
-        Log.d(TAG, "HR Extension: zagon razširitve")
+        Log.d(LOG_TAG, "HR Extension: starting extension")
 
         val service = KarooSystemService(this)
         karooSystemService = service
 
         service.connect { connected ->
             if (connected) {
-                Log.d(TAG, "HR Extension: povezava uspešna")
+                Log.d(LOG_TAG, "HR Extension: connection successful")
 
-                // Spremljanje stanja aktivnosti.
+                // Monitor activity state.
                 rideStateConsumerId = service.addConsumer<RideState> { state ->
                     when (state) {
                         is RideState.Idle -> {
-                            Log.d(TAG, "HR Extension: aktivnost ni aktivna")
+                            Log.d(LOG_TAG, "HR Extension: activity is idle")
                             resetHeartRateStats()
                         }
 
                         is RideState.Recording -> {
-                            Log.d(TAG, "HR Extension: aktivnost se snema")
+                            Log.d(LOG_TAG, "HR Extension: activity recording")
                         }
 
                         is RideState.Paused -> {
-                            Log.d(TAG, "HR Extension: aktivnost je na pavzi")
+                            Log.d(LOG_TAG, "HR Extension: activity paused")
                         }
                     }
                 }
 
-                // Spremljanje trenutnega srčnega utripa.
+                // Monitor current heart rate.
                 consumerId = service.addConsumer<OnStreamState>(
                     OnStreamState.StartStreaming(DataType.Type.HEART_RATE)
                 ) { event ->
@@ -70,26 +70,25 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
                             ]
 
                             if (hr != null) {
-                                Log.d(TAG, "HR Extension: prejet HR = $hr")
                                 heartRateGraphicDataType.updateHeartRate(hr)
                             }
                         }
 
                         StreamState.Searching -> {
-                            Log.d(TAG, "HR Extension: iskanje HR")
+                            Log.d(LOG_TAG, "HR Extension: searching for HR")
                         }
 
                         StreamState.NotAvailable -> {
-                            Log.d(TAG, "HR Extension: HR ni na voljo")
+                            Log.d(LOG_TAG, "HR Extension: HR unavailable")
                         }
 
                         StreamState.Idle -> {
-                            Log.d(TAG, "HR Extension: tok HR je nedejaven")
+                            Log.d(LOG_TAG, "HR Extension: HR stream idle")
                         }
                     }
                 }
 
-                // AVG HR neposredno iz Karoo SDK.
+                // Get average heart rate directly from the Karoo SDK.
                 averageConsumerId = service.addConsumer<OnStreamState>(
                     OnStreamState.StartStreaming(DataType.Type.AVERAGE_HR)
                 ) { event ->
@@ -99,29 +98,24 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
                                 DataType.Field.AVG_HR
                             ]
 
-                            Log.d(
-                                TAG,
-                                "HR Extension: Karoo AVG HR = $averageHeartRate"
-                            )
-
                             updateHeartRateStats()
                         }
 
                         StreamState.Searching -> {
-                            Log.d(TAG, "HR Extension: iskanje AVG HR")
+                            Log.d(LOG_TAG, "HR Extension: searching for average HR")
                         }
 
                         StreamState.NotAvailable -> {
-                            Log.d(TAG, "HR Extension: AVG HR ni na voljo")
+                            Log.d(LOG_TAG, "HR Extension: average HR unavailable")
                         }
 
                         StreamState.Idle -> {
-                            Log.d(TAG, "HR Extension: tok AVG HR je nedejaven")
+                            Log.d(LOG_TAG, "HR Extension: average HR stream idle")
                         }
                     }
                 }
 
-                // MAX HR neposredno iz Karoo SDK.
+                // Get maximum heart rate directly from the Karoo SDK.
                 maximumConsumerId = service.addConsumer<OnStreamState>(
                     OnStreamState.StartStreaming(DataType.Type.MAX_HR)
                 ) { event ->
@@ -131,52 +125,41 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
                                 DataType.Field.MAX_HR
                             ]
 
-                            Log.d(
-                                TAG,
-                                "HR Extension: Karoo MAX HR = $maximumHeartRate"
-                            )
-
                             updateHeartRateStats()
                         }
 
                         StreamState.Searching -> {
-                            Log.d(TAG, "HR Extension: iskanje MAX HR")
+                            Log.d(LOG_TAG, "HR Extension: searching for maximum HR")
                         }
 
                         StreamState.NotAvailable -> {
-                            Log.d(TAG, "HR Extension: MAX HR ni na voljo")
+                            Log.d(LOG_TAG, "HR Extension: maximum HR unavailable")
                         }
 
                         StreamState.Idle -> {
-                            Log.d(TAG, "HR Extension: tok MAX HR je nedejaven")
+                            Log.d(LOG_TAG, "HR Extension: maximum HR stream idle")
                         }
                     }
                 }
 
-                Log.d(TAG, "HR Extension: naročnini AVG HR in MAX HR registrirani")
+                Log.d(
+                    LOG_TAG,
+                    "HR Extension: average and maximum HR subscriptions registered"
+                )
 
-                // Spremljanje uporabniškega profila in HR-con.
+                // Monitor user profile and heart rate zones.
                 profileConsumerId = service.addConsumer<UserProfile> { profile ->
-                    Log.d(TAG, "HR Extension: prejet uporabniški profil")
-                    Log.d(TAG, "HR Extension: max HR = ${profile.maxHr}")
-                    Log.d(TAG, "HR Extension: resting HR = ${profile.restingHr}")
-
-                    profile.heartRateZones.forEachIndexed { index, zone ->
-                        Log.d(
-                            TAG,
-                            "HR Extension: Z${index + 1} = ${zone.min}–${zone.max} BPM"
-                        )
-                    }
+                    Log.d(LOG_TAG, "HR Extension: user profile received")
 
                     heartRateGraphicDataType.updateZones(
                         profile.heartRateZones
                     )
                 }
 
-                Log.d(TAG, "HR Extension: naročnina profila registrirana")
+                Log.d(LOG_TAG, "HR Extension: profile subscription registered")
 
             } else {
-                Log.e(TAG, "HR Extension: povezava ni uspela")
+                Log.e(LOG_TAG, "HR Extension: connection failed")
             }
         }
     }
@@ -197,11 +180,11 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
             maximum = null
         )
 
-        Log.d(TAG, "HR Extension: statistika HR ponastavljena")
+        Log.d(LOG_TAG, "HR Extension: HR statistics reset")
     }
 
     override fun onDestroy() {
-        Log.d(TAG, "HR Extension: zaustavitev")
+        Log.d(LOG_TAG, "HR Extension: stopping extension")
 
         consumerId?.let {
             karooSystemService?.removeConsumer(it)
@@ -230,6 +213,6 @@ class TemplateExtension : KarooExtension("karoo-hr-monitor", "1.0") {
     }
 
     companion object {
-        private const val TAG = "KarooHR"
+        private const val LOG_TAG = "KarooHR"
     }
 }

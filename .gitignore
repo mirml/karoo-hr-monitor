@@ -21,4 +21,17 @@ local.properties
 # Signing keys and credentials
 *.jks
 *.keystore
+*.pem
+*.key
+*.p12
+*.pfx
+*.p8
 keystore.properties
+signing.properties
+credentials.properties
+secrets.properties
+
+# Environment files
+.env
+.env.*
+!.env.example
