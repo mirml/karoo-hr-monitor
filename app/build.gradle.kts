@@ -12,8 +12,8 @@ android {
         applicationId = "io.github.mirml.karoohrmonitor"
         minSdk = 23
         targetSdk = 34
-        versionCode = 8
-        versionName = "0.1.7"
+        versionCode = 20
+        versionName = "0.2.0"
     }
 
     buildTypes {
