@@ -35,6 +35,69 @@ Find and install Karoo HR through the Extensions section on your Hammerhead Karo
 
 For the latest version and release information, visit the [Releases page](https://github.com/mirml/karoo-hr-monitor/releases).
 
+
+## Building from source
+
+### Requirements
+
+- Android Studio
+- JDK 21
+- Android SDK
+- Git
+
+### Karoo SDK dependency
+
+Karoo HR depends on the `io.hammerhead:karoo-ext:1.1.3` library, hosted in GitHub Packages:
+
+`https://maven.pkg.github.com/hammerheadnav/karoo-ext`
+
+Access to this package is managed separately from access to this public source repository. You must have permission to download the package.
+
+### GitHub Actions authentication
+
+The included GitHub Actions workflow uses the following repository secrets:
+
+- `GPR_USER` – your GitHub username.
+- `GPR_KEY` – a GitHub Personal Access Token (classic) with the `read:packages` scope.
+
+To configure them:
+
+1. Open your repository on GitHub.
+2. Go to **Settings → Secrets and variables → Actions**.
+3. Select **New repository secret**.
+4. Add `GPR_USER` and `GPR_KEY`.
+
+Never commit access tokens or credentials to the repository.
+
+Alternatively, GitHub Actions can use its automatically generated `GITHUB_TOKEN`. This requires:
+- Granting the workflow repository read access to the `karoo-ext` package under **Manage Actions access** in the package settings.
+- Adding `packages: read` to the workflow permissions.
+- Configuring the workflow to use `GITHUB_TOKEN` instead of a personal access token.
+
+### Building locally
+
+For local builds, configure your GitHub username and Personal Access Token as environment variables:
+
+- `GPR_USER`
+- `GPR_KEY`
+
+Then run:
+
+```bash
+./gradlew :app:assembleDebug
+```
+
+On Windows:
+
+```powershell
+.\gradlew.bat :app:assembleDebug
+```
+
+The generated APK is located at:
+
+`app/build/outputs/apk/debug/app-debug.apk`
+
+
 ## Developer
 
 Developed by [mirml](https://github.com/mirml).

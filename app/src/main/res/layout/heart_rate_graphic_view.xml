@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="12dp"
+    android:background="#000000"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:gravity="top|center_horizontal"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- AVG HR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:id="@+id/hr_average_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/hr_average"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <!-- CURRENT HR -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.2"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="15px"
+            android:translationY="14px"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/hr_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:scaleType="fitCenter" />
+
+            <!-- Fiksni rdeči srček -->
+            <TextView
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:layout_marginStart="2dp"
+                android:text="♥"
+                android:textSize="16sp"
+                android:textColor="#E53935"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingEnd="3dp"
+                android:translationY="-8dp" />
+
+        </FrameLayout>
+
+        <!-- MAX HR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:id="@+id/hr_maximum_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/hr_maximum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- HR ZONE BAR -->
+    <ImageView
+        android:id="@+id/hr_zone_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginBottom="2dp"
+        android:translationY="2px"
+        android:scaleType="fitXY" />
+
+</LinearLayout>

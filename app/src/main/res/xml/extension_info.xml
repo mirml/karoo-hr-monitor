@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExtensionInfo
+    displayName="@string/extension_name"
+    icon="@drawable/ic_extension_icon"
+    id="karoo-hr-monitor"
+    scansDevices="false">
+
+    <DataType
+        typeId="heart-rate-graphic"
+        description="Heart rate with zone color"
+        displayName="HR Monitor"
+        graphical="true"
+        icon="@drawable/ic_extension_icon" />
+
+</ExtensionInfo>
